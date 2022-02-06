@@ -2,13 +2,18 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 from os import path 
 from flask_login import LoginManager
+import secrets 
+import os
+
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
 def create_app():
+    random_secret =  secrets.token_urlsafe()  # Generates a random secret this only generated on init
+    # print(random_secret)
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'asdasdfga;sdfkgja;dslkgja;sdlkgjfa;dfkljad;sklfj' # This is the secret key for the application 
+    app.config['SECRET_KEY'] = random_secret
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
@@ -29,7 +34,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-
     return app 
 
 def create_database(app):

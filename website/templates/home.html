@@ -1,16 +1,6 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
 
 <h1 text-align="center">Mood Submission</h1>
-<ul class="list-group list-group-flush" id="notes">
-    {% for note in user.notes %}
-    <li clas="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </li>
-    {% endfor %}
-</ul>
 <h1 text-align="center">Hello, {{current_user.first_name }}</h1>
     <form method="POST">
         <textarea name="mood" id="mood" cols="form-control"></textarea>
