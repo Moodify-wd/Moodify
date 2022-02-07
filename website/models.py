@@ -8,6 +8,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150), unique=True)
     first_name = db.Column(db.String(20))
+    last_mood = db.Column(db.String(20))
 
 
 

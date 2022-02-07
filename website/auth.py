@@ -7,6 +7,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/', methods=['GET', 'POST'])
 def login(): 
     if request.method == 'POST':
         email = request.form.get('email')
@@ -15,19 +16,15 @@ def login():
         user = User.query.filter_by(email=email).first() 
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in succesfully', category='error')
+                flash('Logged in succesfully', category='success')
                 login_user(user)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('mood.mood'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else: 
             flash('Email does not exist.', category='error')
     return render_template("login.html", user=current_user)
 
-
-@auth.route('/', methods=['POST', 'GET'])
-def index():
-    return render_template("login.html", user=current_user)
 
 @auth.route('/logout')
 @login_required
@@ -45,6 +42,7 @@ def sign_up():
 
 
         # define requirements and check imput
+        #TODO Add regex
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
@@ -62,7 +60,7 @@ def sign_up():
             db.session.commit() 
             login_user(new_user)
             flash('Account created', category='success')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('mood.home'))
 
 
     return render_template("sign_up.html", user=current_user)
