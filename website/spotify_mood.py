@@ -1,4 +1,5 @@
 from sqlite3 import Cursor
+from unicodedata import category
 from flask import Blueprint, render_template, request, flash, jsonify 
 from flask_login import  login_required, current_user
 from . import db
@@ -29,6 +30,7 @@ def mood():
 
             #Store passed in mood in database
             mood = request.form.get('mood')
+            flash(f"Mood entered: {mood}", category='success')
 
             pass     
                 
