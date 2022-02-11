@@ -1,13 +1,16 @@
-from flask import Flask
+from flask import Flask, session
 from flask_sqlalchemy import SQLAlchemy 
 from os import path 
 from flask_login import LoginManager
 import secrets 
 import os
+from flask_session import Session
 
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
+
+
 
 def create_app():
     random_secret =  secrets.token_urlsafe()  # Generates a random secret this only generated on init
@@ -16,6 +19,7 @@ def create_app():
     app.config['SECRET_KEY'] = random_secret
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
+    Session(app)
 
     from .spotify_mood import spotify_mood 
     from .auth import auth 
