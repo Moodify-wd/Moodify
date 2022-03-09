@@ -1,0 +1,31 @@
+{
+  "name": "moodify",
+  "version": "1.0.0",
+  "description": "Web Development final project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcclaren00/web-dev-project.git"
+  },
+  "author": "Kevin Mcclaren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcclaren00/web-dev-project/issues"
+  },
+  "homepage": "https://github.com/mcclaren00/web-dev-project#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "querystring": "^0.2.1",
+    "request": "^2.88.2"
+  }
+}
