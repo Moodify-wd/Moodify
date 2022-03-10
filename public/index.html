@@ -120,7 +120,7 @@
 
           document.getElementById('login-button').addEventListener('click', function() {
 
-            var client_id = '6e7bda700d6449fe92f25f191e2e4cec'; 
+            var client_id = process.env.CLIENT_ID; 
             var redirect_uri = 'http://localhost:8888/'
 
             var state = generateRandomString(16);
@@ -137,7 +137,17 @@
 
             window.location = url;
           }, false);
-        }
+          // get playlist by type of mood
+          document.getElementById('mood-button').addEventListener('click', function() {
+            var client_id = process.env.CLIENT_ID; 
+            var redirect_uri = process.env.REDIRECT_URI
+
+            var state = generateRandomString(16); 
+            localStorage.setItem(stateKey, state);
+            var url = ''; //API endpoint URL 
+      
+          }
+          )}
       })();
     </script>
 </html>
