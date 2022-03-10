@@ -144,10 +144,26 @@
 
             var state = generateRandomString(16); 
             localStorage.setItem(stateKey, state);
-            var url = ''; //API endpoint URL 
-      
-          }
-          )}
+            localStorage.removeItem(stateKey);
+            if (access_token) {
+              $.ajax({
+                  url: `https://api.spotify.com/v1/users/${user_id}/playlists`,
+                  headers: {
+                    'Authorization': 'Bearer ' + access_token
+                  },
+                  success: function(response) {
+
+                    $('#login').hide();
+                    $('#loggedin').show();
+                  }
+              });
+            } else {
+                $('#login').show();
+                $('#loggedin').hide();
+            }
+        
+            }
+            )}
       })();
     </script>
 </html>
