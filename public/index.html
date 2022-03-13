@@ -121,6 +121,74 @@
             }
           });
         } else {
+
+          localStorage.removeItem(stateKey);
+          if (access_token) {
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+                  $('#login').hide();
+                  $('#loggedin').show();
+                }
+            });
+          } else {
+              $('#login').show();
+              $('#loggedin').hide();
+          }
+
+          document.getElementById('login-button').addEventListener('click', function() {
+
+            var client_id = process.env.CLIENT_ID; 
+            var redirect_uri = 'http://localhost:8888/'
+
+            var state = generateRandomString(16);
+
+            localStorage.setItem(stateKey, state);
+            var scope = 'user-read-private user-read-email playlist-modify-private';
+
+            var url = 'https://accounts.spotify.com/authorize';
+            url += '?response_type=token';
+            url += '&client_id=' + encodeURIComponent(client_id);
+            url += '&scope=' + encodeURIComponent(scope);
+            url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+            url += '&state=' + encodeURIComponent(state);
+
+            window.location = url;
+          }, false);
+          // get playlist by type of mood
+          document.getElementById('mood-button').addEventListener('click', function() {
+            var client_id = process.env.CLIENT_ID; 
+            var redirect_uri = process.env.REDIRECT_URI
+
+            var state = generateRandomString(16); 
+            localStorage.setItem(stateKey, state);
+            localStorage.removeItem(stateKey);
+            if (access_token) {
+              $.ajax({
+                  url: `https://api.spotify.com/v1/users/${user_id}/playlists`,
+                  headers: {
+                    'Authorization': 'Bearer ' + access_token
+                  },
+                  success: function(response) {
+
+                    $('#login').hide();
+                    $('#loggedin').show();
+                  }
+              });
+            } else {
+                $('#login').show();
+                $('#loggedin').hide();
+            }
+        
+            }
+            )}
+      })();
+    </script>
           $('#login').show();
           $('#loggedin').hide();
         }
