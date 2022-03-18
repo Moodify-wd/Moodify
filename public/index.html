@@ -2,20 +2,13 @@
 <html>
 
 <head>
-  <title>Login to Moodify</title>
+  <meta charset='utf-8'/>
+  <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="index.css">
+  <title>Moodify</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <style type="text/css">
-    #login,
-    #loggedin {
-      display: none;
-    }
-
-    .text-overflow {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 500px;
-    }
   </style>
 </head>
 
@@ -23,7 +16,7 @@
   <div class="container">
     <div id="login">
       <h1>Welcome to Moodify</h1>
-      <button id="login-button" class="btn btn-primary">Log in with Spotify</button>
+      <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
     </div>
     <div id="loggedin">
       <div id="user-profile">
@@ -32,7 +25,17 @@
       </div>
     </div>
   </div>
-
+  <section>
+    <h2>What is Moodify?</h2>
+    <p>
+      At the end of his hometown pier, the water was cold and deep. Years ago he would ride his bicycle to the harbor and stand there to watch the winter sunrise. 
+      Now it was July and the breeze over the water sopped the heat from the air so that he could lean on the rail and feel only thin sweat beneath his shirt. 
+      He was thinking that he ought to come here more often. He said that to himself all the time, but the length of the drive kept him at home.</br></br>
+      “Guess that’s the end of our road!” Ashley called, tapping on one of the bigger rocks. Matt was a little distance away, examining the part where the old railroad had been permanently cut off. 
+      It was a shame, really. They had discovered the railway behind some bushes on their hiking trail and had decided to follow it. 
+      Two hours in, it had led them past breathtaking ocean views, creepy tunnels and a few minutes before a treacherous bridge that Matt didn’t really want to cross again.
+    </p>
+  </section>
   <script id="moodify-dashboard" type="text/x-handlebars-template">
     
   </script>
@@ -56,6 +59,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script>
+
     (function () {
 
       var stateKey = 'spotify_auth_state';
