@@ -4,3 +4,4 @@ website/database.db
 .env 
 node_modules
 public/config.js
+.DS_store
