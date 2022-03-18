@@ -74,5 +74,6 @@ document.getElementById('login-button').addEventListener('click', function() {
     url += '&state=' + encodeURIComponent(state);
 
     window.location = url;
+    window.location = "mood.html" // Load application into mood.html file.
 }, false);
 }
