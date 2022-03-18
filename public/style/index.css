@@ -12,8 +12,7 @@ h1{
     display: block;
 }
 #login-button{
-    background-image: url(images/ButtonBackground.png);
-    
+    background-image: url("images/ButtonBackground.png");
     background-size: contain;
     color: white;
     border: none;
@@ -22,11 +21,6 @@ h1{
     margin-bottom: 75px;
     padding: 25px;
     }
-
-body{
-    background-image: url("images/Moodify Header.png");
-    background-size: auto;
-    }
 h2{
     font-size: xxx-large;
     text-align: center;
@@ -34,5 +28,6 @@ h2{
 p{
     text-align: center;
     font-size: medium;
-    padding: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
 } 
