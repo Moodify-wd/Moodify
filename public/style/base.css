@@ -1,0 +1,16 @@
+@font-face {
+    font-family: superior-title,serif;
+    src: url(https://use.typekit.net/sfr4zbs.css)
+}
+body{
+    background-image: url("images/Moodify\ Header.png");
+    background-size: auto;
+    }
+h1{  
+    text-align: center;
+    font-family: superior-title, serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: xxx-large;
+    display: block;
+}

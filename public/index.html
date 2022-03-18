@@ -2,20 +2,15 @@
 <html>
 
 <head>
-  <title>Login to Moodify</title>
+  <meta charset='utf-8'/>
+  <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/index.css">
+  <title>Moodify</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="icon" href="style/images/favicon.png">
   <style type="text/css">
-    #login,
-    #loggedin {
-      display: none;
-    }
-
-    .text-overflow {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 500px;
-    }
   </style>
 </head>
 
@@ -23,7 +18,7 @@
   <div class="container">
     <div id="login">
       <h1>Welcome to Moodify</h1>
-      <button id="login-button" class="btn btn-primary">Log in with Spotify</button>
+      <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
     </div>
     <div id="loggedin">
       <div id="user-profile">
@@ -33,10 +28,29 @@
     </div>
   </div>
 
+
   <!-- After auth -->
   <script id="moodify-dashboard" type="text/x-handlebars-template"></script>
 
   <!-- 
+
+  <section>
+    <h2>What is Moodify?</h2>
+    <p>
+      Moodify is built using Spotify's web API to dynamically generate a unique playlist for each user. 
+      Once you log in, you'll be able to create a playlist using your liked music based on however you are feeling.
+      Don't have any liked music? We have generated playlists based on pre-defined moods!</br></br>
+
+      If you want to learn more about who & why this was created, please head to the <a href="about.html">About</a> section! </br></br>
+
+      Interested in learning more about the technical side? Please check out the <a href=https://github.com/mcclaren00/Moodify>github!</a>
+    </p>
+  </section>
+  <script id="moodify-dashboard" type="text/x-handlebars-template">
+    
+  </script>
+
+
   <script id="user-profile-template" type="text/x-handlebars-template">
       <center><h1> Welcome {{display_name}}</h1></center>
       <div class="media">
@@ -45,6 +59,7 @@
         </div>
       </div>
     </script>
+
   -->
  
 
@@ -61,7 +76,7 @@
     <div data-include="mood.html"></div> 
     
 </script>
-
+  
   <script id="oauth-template" type="text/x-handlebars-template">
       <h2>oAuth info</h2>
       <dl class="dl-horizontal">
@@ -71,5 +86,5 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="auth.js"></script>
+  <script src="auth.js"></script> 
 </html>
