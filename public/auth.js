@@ -11,13 +11,13 @@ function getHashParams() {
     }
 
 function generateRandomString(length) {
-var text = '';
-var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-for (var i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-}
-return text;
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
 };
 
 var userProfileSource = document.getElementById('user-profile-template').innerHTML,
@@ -59,7 +59,7 @@ if (access_token) {
 document.getElementById('login-button').addEventListener('click', function() {
 
     var client_id = '6e7bda700d6449fe92f25f191e2e4cec'; // Your client id
-    var redirect_uri = 'http://localhost:8888/'; // Your redirect uri
+    var redirect_uri = 'http://localhost:8888/mood.html'; // Your redirect uri
 
     var state = generateRandomString(16);
 
@@ -74,6 +74,5 @@ document.getElementById('login-button').addEventListener('click', function() {
     url += '&state=' + encodeURIComponent(state);
 
     window.location = url;
-    window.location = "mood.html" // Load application into mood.html file.
-}, false);
+    }, false);
 }
