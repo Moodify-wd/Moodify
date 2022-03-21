@@ -5,27 +5,23 @@
         <link rel="icon" href="style/images/favicon.png">
         <link rel="stylesheet" href="style/base.css">
         <link rel="stylesheet" href="style/mood.css">
+        <script src="mood.js" type="text/JavaScript"></script>
 
     </head>
     <body>
         <h1>Welcome to Moodify!</h1>
         <h2>How are you feeling today?</h2>
         <div id="moodSelector">
-        <input list="moods">
-        <datalist id="moods">
-          <option value="Happy">
-          </option>
-          <option value="Sad">
-          </option>
-          <option value="Mad">
-          </option>
-          <option value="Energetic">
-          </option>
-          <option value="Heartbroken">
-          </option>
-          <option value="In Love">
-          </option>
-        </datalist>
+            <form>
+            <select name="mood" id="moodValue">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="Angry">Angry</option>
+                <option value="Heartbroken">Heartbroken</option>
+            </select>
+            <input id="moodselect" type="submit" onclick="userMood()" value="Generate">
+            </form>
+            <script></script>
         </div>
     </body>
 </html>

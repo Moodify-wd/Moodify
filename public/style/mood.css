@@ -14,8 +14,16 @@ h2{
     animation-fill-mode: forwards;
     visibility: hidden;
 }
-
-
+#moodselect{
+  background-image: url("images/ButtonBackground.png");
+  background-size: contain;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 25px;
+  padding: 10px;
+ 
+}
 
 /* ---Animation Keyframes & compatabilities--- */
 
