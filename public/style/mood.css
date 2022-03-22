@@ -24,7 +24,9 @@ h2{
   padding: 10px;
  
 }
-#loader {
+#spinner {
+  margin: auto;
+  
   border: 16px solid #ffffff;
   border-top: 16px solid #44ff92;
   border-radius: 50%;
@@ -32,8 +34,6 @@ h2{
   height: 75px;
   animation: spin 3s linear infinite;
 
-  display: flex;
-  justify-content: center;
 }
 
 

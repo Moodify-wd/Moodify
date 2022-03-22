@@ -11,9 +11,16 @@ function moodSelector(){
     var moodDiv=document.getElementById("moodSelector");
     var moodHeading=document.getElementById("heading2");
 
+    
     // debug purposes to check correct selection is being assigned to userMood
     console.log("Your selected mood was: " + userMood);
+    
+    spinnerCreator();
 
+    setTimeout(function(){
+        document.body.removeChild(spinner);
+    }, 7000);
+    
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
     switch (userMood){
         case "happy":
@@ -33,4 +40,14 @@ function moodSelector(){
         moodDiv.innerHTML="You are heartbroken!";
         break;
     }
+}
+
+function spinnerCreator(){
+    var spinner=document.createElement('div');
+    spinner.id='spinner'
+    document.body.appendChild(spinner);
+}
+
+function spinnerRemover(){
+    setTimeout(document.body.removeChild(spinner), 5000);
 }
