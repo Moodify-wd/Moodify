@@ -3,14 +3,14 @@ h2{
     font-size: 21px;
     text-align: center;
 
-    animation: 7s fadein;
+    animation: 5s fadein;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
 #moodSelector{
     display: flex;
     justify-content: center;
-    animation: 14s fadein;
+    animation: 5s fadein-slow;
     animation-fill-mode: forwards;
     visibility: hidden;
 }
@@ -20,24 +20,37 @@ h2{
   color: white;
   border: none;
   border-radius: 12px;
-  margin-top: 25px;
+  margin-top: 25px; 
   padding: 10px;
  
 }
 
 /* ---Animation Keyframes & compatabilities--- */
 
-@keyframes fadein {
+@keyframes fadein-slow {
     0% {
         opacity: 0;
       }
-      25%{
+      80% {
         opacity: 0;
       }
       100% {
         visibility: visible;
         opacity: 1;
       }
+}
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
 }
 
 /* Firefox < 16 */
