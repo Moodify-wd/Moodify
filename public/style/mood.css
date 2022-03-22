@@ -24,6 +24,18 @@ h2{
   padding: 10px;
  
 }
+#loader {
+  border: 16px solid #ffffff;
+  border-top: 16px solid #44ff92;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  animation: spin 3s linear infinite;
+
+  display: flex;
+  justify-content: center;
+}
+
 
 /* ---Animation Keyframes & compatabilities--- */
 
@@ -95,4 +107,9 @@ h2{
         visibility: visible;
         opacity: 1;
       }  
+}
+/* Spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

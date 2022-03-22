@@ -9,20 +9,20 @@
 
     </head>
     <body>
-        <h1 id="test1">Welcome to Moodify!</h1>
-        <h2 id="test2">How are you feeling today?</h2>
+        <h1 id="heading1">Welcome to Moodify!</h1>
+        <h2 id="heading2">How are you feeling today?</h2>
         <div id="moodSelector">
             <form>
             <select name="mood" id="moodValue">
                 <option value="happy">Happy</option>
                 <option value="sad">Sad</option>
-                <option value="Angry">Angry</option>
-                <option value="Heartbroken">Heartbroken</option>
+                <option value="angry">Angry</option>
+                <option value="heartbroken">Heartbroken</option>
             </select>
-            <input id="moodselect" type="submit" onclick="moodSelector()" value="Generate">
+            <input id="moodselect" type="button" onclick="moodSelector()" value="Generate">
             </form>
-            <script></script>
         </div>
+        <div id="loader" class="loader"></div>
     </body>
 </html>
 
