@@ -58,8 +58,8 @@ if (access_token) {
 
 document.getElementById('login-button').addEventListener('click', function() {
 
-    var client_id = '6e7bda700d6449fe92f25f191e2e4cec'; // Your client id
-    var redirect_uri = 'http://localhost:8888/mood.html'; // Your redirect uri
+    var client_id = '6e7bda700d6449fe92f25f191e2e4cec'; // Need an env here
+    var redirect_uri = 'http://localhost:8888/mood.html'; //Please env
 
     var state = generateRandomString(16);
 
