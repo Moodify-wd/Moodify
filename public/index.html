@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset='utf-8'/>
   <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
@@ -29,8 +28,6 @@
       </div>
     </div>
   </div>
-
-
   <!-- After auth -->
   <script id="moodify-dashboard" type="text/x-handlebars-template"></script>
   <section>
@@ -45,39 +42,19 @@
       Interested in learning more about the technical side? Please check out the <a href=https://github.com/mcclaren00/Moodify>github!</a>
     </p>
   </section>
-  <script id="moodify-dashboard" type="text/x-handlebars-template">
-    
-  </script>
-  <script id="user-profile-template" type="text/x-handlebars-template">
-      <center><h1> Welcome {{display_name}}</h1></center>
-      <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="150" src="{{images.0.url}}" />
-        </div>
-      </div>
-    </script>
- 
-
-  <!--
-  <script id="user-profile-template" type="javascript">
-    <center><p> Test html code</p></center>
-      
-  </script>
-
---> 
-
+  <script id="moodify-dashboard" type="text/x-handlebars-template"></script>
 <!-- Redirect to mood.html on sucessful login -->
-<script id="user-profile-template" type="text/javascript">
+<script id="user-profile-template" type="text/x-handlebars-template">
     <div data-include="mood.html"></div> 
-    
 </script>
-  
-  <script id="oauth-template" type="text/x-handlebars-template">
-      <h2>oAuth info</h2>
-      <dl class="dl-horizontal">
-        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
-      </dl>
-    </script>
+
+<!-- Oauth Stuff -->
+<script id="oauth-template" type="text/x-handlebars-template">
+    <h2>oAuth info</h2>
+    <dl class="dl-horizontal">
+      <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+    </dl>
+  </script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
