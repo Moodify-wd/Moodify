@@ -20,11 +20,11 @@ for (var i = 0; i < length; i++) {
 return text;
 };
 
-var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+var userProfileSource = document.getElementById('user-profile-template').textContent,
     userProfileTemplate = Handlebars.compile(userProfileSource),
     userProfilePlaceholder = document.getElementById('user-profile');
 
-    oauthSource = document.getElementById('oauth-template').innerHTML,
+    oauthSource = document.getElementById('oauth-template').textContent,
     oauthTemplate = Handlebars.compile(oauthSource),
     oauthPlaceholder = document.getElementById('oauth');
 
@@ -45,7 +45,7 @@ if (access_token) {
         'Authorization': 'Bearer ' + access_token
         },
         success: function(response) {
-        userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+        userProfilePlaceholder.textContent = userProfileTemplate(response);
 
         $('#login').hide();
         $('#loggedin').show();
