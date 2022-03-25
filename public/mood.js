@@ -25,19 +25,19 @@ function moodSelector(){
     switch (userMood){
         case "happy":
         moodHeading.innerHTML="";
-        moodDiv.innerHTML="You are happy!";
+        moodDiv.textContent="You are happy!";
         break;
 
         case "sad":
-        moodDiv.innerHTML="You are sad!";
+        moodDiv.textContent="You are sad!";
         break;
 
         case "angry":
-        moodDiv.innerHTML="You are angry!";
+        moodDiv.textContent="You are angry!";
         break;
 
         case "heartbroken":
-        moodDiv.innerHTML="You are heartbroken!";
+        moodDiv.textContent="You are heartbroken!";
         break;
     }
 }
