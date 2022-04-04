@@ -57,7 +57,7 @@ function moodSelector() {
             moodDiv.textContent = "You are heartbroken!";
             break;
     }
-    spotifyApi(access_token, userMood);
+    playlistGenerate(access_token, userMood);
 }
 
 function spinnerCreator() {
@@ -70,46 +70,68 @@ function spinnerRemover() {
     setTimeout(document.body.removeChild(spinner), 5000);
 }
 
-
-// make calls to spotify API 
-function spotifyApi(access_token, userMood) {
-    console.log(userMood);
-
-    playlistGenerate(access_token, userMood);
-
-}
-
-
-// Function creates a private playlist in the user accounts 
+// Function creates a private playlist in the user account 
 async function playlistGenerate(access_token, userMood) {
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
     })
-
     const userData = await userResponse.json();
-    id = userData.id; // user ID
-    console.log(id);
+    var userId = userData.id; // user ID
+    console.log(userId);
 
-    const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + id + '/playlists', {
+    const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
         method: "POST",
         headers: { 'Authorization': 'Bearer ' + access_token },
         body: JSON.stringify({
-            'name': userMood,
+            'name': "Moodify " +  userMood,
             'public': false
         })
     })
-
     const playlistData = await createPlaylist.json();
-    console.log('Playlist data' + playlistData);
-}
+    var playlistId = playlistData.id; 
+    console.log('Playlist id ' + playlistData.id);
 
-// search for tracks and add to spotify playlist 
-async function searchTracks(access_token, userMood) {
-    //use reccomendation endpoint
-}
+    const getGenreSeeds = await fetch("https://api.spotify.com/v1/recommendations/available-genre-seeds", {
+        method: "GET", 
+        headers: { 'Authorization': 'Bearer ' + access_token }
+    })
+    const genreSeedsData = await getGenreSeeds.json(); 
+    console.log(genreSeedsData); 
 
-// Get track reccomendations
-async function getTrackReccomendations(access_token, userMood) {
+    // Dictionary of seeds to get reccomendations
+    let genreSeeds = {
+        "happy": "edm,happy,pop,hip-hop,disco", 
+        "sad": "sad,indie,study,soul", 
+        "mad": "rock,rock-n-roll,hardcore", 
+        "heartbroken": ""
+    }
+    let artistSeeds = {
+        "happy": "", 
+        "sad": "", 
+        "mad": "", 
+        "heartbroken": "" 
+    }
+    let trackSeeds = {
+        "happy": "", 
+        "sad": "", 
+        "mad": "", 
+        "heartborken": "" 
+    }
 
+    // get track recomendations 
+    const getTracks = await fetch("https://api.spotify.com/v1/recommendations", {
+        method: "GET",
+        headers: {'Authorization' : 'Bearer ' + access_token, "Content-Type" : "application/json" },
+        body: JSON.stringify({
+            seed_genre: genreSeeds[userMood],
+            seed_track: trackSeeds[userMood], 
+            seed_artist: artistSeeds[userMood], 
+            market: "US", 
+            limit: "50"
+
+        })     
+    })
+    const getTracksData = await getTrack.json(); 
+    console.log("Get Tracks: " + getTracksData); 
 }
