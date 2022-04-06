@@ -1,19 +1,13 @@
 
-function getHashParams() {
-    var hashParams = {};
-    var e,
-        r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
-    while ((e = r.exec(q))) {
-        hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
+function parseURLHash() {
+    var search = location.hash.substring(1);
+    var urlHash = search ? JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
+        function (key, value) { return key === "" ? value : decodeURIComponent(value) }) : {}
+    return urlHash;
 }
-
-let params = getHashParams();
-let access_token = params.access_token;
-console.log(access_token)
-
+urlHash = parseURLHash();
+var access_token = urlHash.access_token;
+console.log(access_token);
 
 // function to initate playlist creation. Gets called when the "generate" button is clicked.
 function moodSelector() {
@@ -81,7 +75,6 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var userId = userData.id; // user ID
     console.log(userId);
 
-
     const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
         method: "POST",
         headers: { 'Authorization': 'Bearer ' + access_token },
@@ -95,6 +88,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     console.log('Playlist id ' + playlistData.id);
 
     /* 
+    // Get available genres
     const getGenreSeeds = await fetch("https://api.spotify.com/v1/recommendations/available-genre-seeds", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
@@ -105,11 +99,12 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
     // Dictionary of seeds to get reccomendations limited to 3 
     let genreSeeds = {
-        "happy": "happy,rock,edm",
-        "sad": "sad",
-        "mad": "rock",
-        "heartbroken": "sad"
+        "happy": "happy,party,edm",
+        "sad": "sad,indie,folk",
+        "mad": "rock,emo,hardcore",
+        "heartbroken": "sad,indie,folk"
     }
+
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
     var artistEncoded = encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
@@ -118,9 +113,9 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         method: "GET",
         headers: {
             'Authorization': 'Bearer ' + access_token,
-
-        },
+        }
     })
+
     const artistData = await getArtist.json();
     var artistId = artistData.artists.items[0].id;
     console.log(artistId);
@@ -129,10 +124,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
     })
-
     const trackData = await getFavTrack.json();
-    console.log(trackData);
-
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
 
@@ -146,11 +138,12 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     const getTracksData = await getTracks.json();
     var recomendedTracksId = [];
 
+    // create list of track IDs 
     for (var i = 0; i < 50; i++) {
         recomendedTracksId.push(getTracksData.tracks[i].id);
-
     }
 
+    // Add tracks to the playlist 
     for (var j = 0; j < 50; j++) {
         console.log(recomendedTracksId[j]);
         var uris = "spotify:track:" + recomendedTracksId[j];
@@ -159,5 +152,13 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
             headers: { "Authorization": "Bearer " + access_token }
         })
     }
+
+    // Alert to open new playlist in a new tab 
+    if (confirm("Open playlist")) {
+        window.open("https://open.spotify.com/playlist/" + playlistId);
+    } else {
+
+    }
+
 
 }
