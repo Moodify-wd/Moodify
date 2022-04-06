@@ -1,6 +1,8 @@
 ### Installation 
 
-Install nodejs and npm from the internet 
+Install NodeJS and NPM package manager. 
 
+Install through npm: `npm install` - installs all dependancies
 
-run: `npm install ` this will install all dependancies. Project in progress.  
+Run: `node app.js` 
+
