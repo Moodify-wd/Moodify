@@ -15,7 +15,6 @@ let _token = hash.access_token;
 
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
-// Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '6e7bda700d6449fe92f25f191e2e4cec';
 const redirectUri = 'http://localhost:8888/mood.html';
 const scopes = [
@@ -25,7 +24,7 @@ const scopes = [
     'playlist-modify-private'
 ];
 
-// If there is no token, redirect to Spotify authorization
+// If no token found get token 
 document.getElementById('login-button').addEventListener('click', function () {
     if (!_token) {
         window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token`;
