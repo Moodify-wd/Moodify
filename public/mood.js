@@ -5,7 +5,7 @@ function parseURLHash() {
         function (key, value) { return key === "" ? value : decodeURIComponent(value) }) : {}
     return urlHash;
 }
-urlHash = parseURLHash();
+var urlHash = parseURLHash();
 var access_token = urlHash.access_token;
 console.log(access_token);
 
@@ -25,7 +25,7 @@ function moodSelector() {
     var favArtist = document.getElementById("favArtist").value;
 
     // debug purposes to check correct selection is being assigned to userMood
-    console.log("Your selected mood was: " + userMood);
+    // console.log("Your selected mood was: " + userMood);
 
     spinnerCreator();
 
@@ -75,18 +75,6 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var userId = userData.id; // user ID
     console.log(userId);
 
-    const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
-        method: "POST",
-        headers: { 'Authorization': 'Bearer ' + access_token },
-        body: JSON.stringify({
-            'name': "Moodify " + userMood,
-            'public': false
-        })
-    })
-    const playlistData = await createPlaylist.json();
-    var playlistId = playlistData.id;
-    console.log('Playlist id ' + playlistData.id);
-
     /* 
     // Get available genres
     const getGenreSeeds = await fetch("https://api.spotify.com/v1/recommendations/available-genre-seeds", {
@@ -109,26 +97,41 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var artistEncoded = encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
 
+    // get favorite artiest
     const getArtist = await fetch("https://api.spotify.com/v1/search?q=artist:" + artistEncoded + "&type=artist", {
         method: "GET",
         headers: {
             'Authorization': 'Bearer ' + access_token,
         }
     })
-
     const artistData = await getArtist.json();
     var artistId = artistData.artists.items[0].id;
     console.log(artistId);
 
+    // get favortie song
     const getFavTrack = await fetch("https://api.spotify.com/v1/search?q=" + encodeURIComponent(trackFormatted) + "&type=track&market=US", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
     })
     const trackData = await getFavTrack.json();
+
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
 
-    // get track recomendations 
+     // create playlist 
+     const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
+        method: "POST",
+        headers: { 'Authorization': 'Bearer ' + access_token },
+        body: JSON.stringify({
+            'name': "Moodify " + userMood,
+            'public': false
+        })
+    })
+    const playlistData = await createPlaylist.json();
+    var playlistId = playlistData.id;
+    console.log('Playlist id ' + playlistData.id);
+
+    // get track recomendations based off of seed track artist and genres based off of mood
     const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=50&market=US", {
         method: "GET",
         headers: {
@@ -143,7 +146,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         recomendedTracksId.push(getTracksData.tracks[i].id);
     }
 
-    // Add tracks to the playlist 
+    // Add tracks to the playlist looping through track lists
     for (var j = 0; j < 50; j++) {
         console.log(recomendedTracksId[j]);
         var uris = "spotify:track:" + recomendedTracksId[j];
