@@ -5,7 +5,7 @@ function parseURLHash() {
         function (key, value) { return key === "" ? value : decodeURIComponent(value) }) : {}
     return urlHash;
 }
-urlHash = parseURLHash();
+var urlHash = parseURLHash();
 var access_token = urlHash.access_token;
 console.log(access_token);
 
@@ -146,7 +146,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         recomendedTracksId.push(getTracksData.tracks[i].id);
     }
 
-    // Add tracks to the playlist 
+    // Add tracks to the playlist looping through track lists
     for (var j = 0; j < 50; j++) {
         console.log(recomendedTracksId[j]);
         var uris = "spotify:track:" + recomendedTracksId[j];
