@@ -14,4 +14,4 @@ app.use(function (req, res, next) {
 
 // Creating 
 console.log('Listening on env port');
-app.listen(process.env.PORT || 8888);
+app.listen(process.env.PORT || 80);
