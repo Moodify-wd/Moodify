@@ -142,6 +142,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     if (confirm("Open playlist")) {
         window.open("https://open.spotify.com/playlist/" + playlistId);
         document.body.removeChild(spinner);
+        var moodDiv = document.getElementById("moodSelector");
         moodDiv.textContent="Playlist generated!";
 
     } else {
