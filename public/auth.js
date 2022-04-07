@@ -19,7 +19,6 @@ const clientId = "6e7bda700d6449fe92f25f191e2e4cec";
 const redirectUri = 'http://localhost:8888/mood.html';
 const scopes = [
     'user-read-private',
-    'user-read-email',
     'playlist-modify-public',
     'playlist-modify-private'
 ];
