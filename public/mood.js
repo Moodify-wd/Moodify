@@ -28,30 +28,11 @@ function moodSelector() {
     // console.log("Your selected mood was: " + userMood);
 
     spinnerCreator();
-
-    setTimeout(function () {
-        document.body.removeChild(spinner);
-    }, 7000);
+   
 
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
-    switch (userMood) {
-        case "happy":
-            moodHeading.innerHTML = "";
-            moodDiv.textContent = "You are happy!";
-            break;
-
-        case "sad":
-            moodDiv.textContent = "You are sad!";
-            break;
-
-        case "angry":
-            moodDiv.textContent = "You are angry!";
-            break;
-
-        case "heartbroken":
-            moodDiv.textContent = "You are heartbroken!";
-            break;
-    }
+    moodHeading.textContent="";
+    moodDiv.textContent="Generating playlist...";
     playlistGenerate(access_token, userMood, favSong, favArtist);
 }
 
@@ -90,7 +71,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         "happy": "happy,party,edm",
         "sad": "sad,indie,folk",
         "mad": "rock,emo,hardcore",
-        "heartbroken": "sad,indie,folk"
+        "heartbroken": "sad,indie,folk",
+        "chill": "rainy-day, chill, ambient",
     }
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
@@ -142,12 +124,12 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var recomendedTracksId = [];
 
     // create list of track IDs 
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 25; i++) {
         recomendedTracksId.push(getTracksData.tracks[i].id);
     }
 
     // Add tracks to the playlist looping through track lists
-    for (var j = 0; j < 50; j++) {
+    for (var j = 0; j < 25; j++) {
         console.log(recomendedTracksId[j]);
         var uris = "spotify:track:" + recomendedTracksId[j];
         const addTrack = await fetch("https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?uris=" + encodeURIComponent(uris), {
@@ -159,6 +141,9 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     // Alert to open new playlist in a new tab 
     if (confirm("Open playlist")) {
         window.open("https://open.spotify.com/playlist/" + playlistId);
+        document.body.removeChild(spinner);
+        moodDiv.textContent="Playlist generated!";
+
     } else {
 
     }
