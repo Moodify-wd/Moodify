@@ -15,13 +15,14 @@
     <div id="moodSelector">
         <form>
             <select name="mood" id="moodValue">
-                <option value="happy">Happy</option>
-                <option value="sad">Sad</option>
-                <option value="angry">Angry</option>
-                <option value="heartbroken">Heartbroken</option>
+                <option value="happy">I'm happy</option>
+                <option value="sad">I'm sad</option>
+                <option value="mad">I'm mad</option>
+                <option value="heartbroken">I'm heartbroken</option>
+                <option value="chill">I need to chill</option>
             </select>
-            <input id="favArtist" type="text" placeholder="Favorite Artist">
-            <input id="favSong" type="text" placeholder="Favorite Song">
+            <input id="favArtist" class="inputBox" type="text" placeholder="Favorite Artist">
+            <input id="favSong" class="inputBox" type="text" placeholder="Favorite Song">
             <input id="moodselect" type="button" onclick="moodSelector()" value="Generate">
         </form>
         <p id="err"></p>
