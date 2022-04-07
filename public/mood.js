@@ -28,11 +28,11 @@ function moodSelector() {
     // console.log("Your selected mood was: " + userMood);
 
     spinnerCreator();
-   
+
 
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
-    moodHeading.textContent="";
-    moodDiv.textContent="Generating playlist...";
+    moodHeading.textContent = "";
+    moodDiv.textContent = "Generating playlist...";
     playlistGenerate(access_token, userMood, favSong, favArtist);
 }
 
@@ -100,8 +100,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
 
-     // create playlist 
-     const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
+    // create playlist 
+    const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
         method: "POST",
         headers: { 'Authorization': 'Bearer ' + access_token },
         body: JSON.stringify({
@@ -140,10 +140,12 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
     // Alert to open new playlist in a new tab 
     if (confirm("Open playlist")) {
+        var moodDiv = document.getElementById("moodSelector");
+        moodDiv.textContent = "Playlist generated!";
+        document.body.removeChild(spinner);
         window.open("https://open.spotify.com/playlist/" + playlistId);
         document.body.removeChild(spinner);
-        var moodDiv = document.getElementById("moodSelector");
-        moodDiv.textContent="Playlist generated!";
+
 
     } else {
 
