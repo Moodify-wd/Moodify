@@ -3,17 +3,19 @@ h2{
     font-size: 21px;
     text-align: center;
 
-    animation: 5s fadein;
+    /* animation: 5s fadein;
     animation-fill-mode: forwards;
-    visibility: hidden;
-}
+    visibility: hidden; */
+} 
 #moodSelector{
     display: flex;
     justify-content: center;
-    animation: 5s fadein-slow;
-    animation-fill-mode: forwards;
-    visibility: hidden;
+    /* animation: 5s fadein-slow;
+    animation-fill-mode: forwards; 
+    visibility: hidden; */
+    padding-bottom: 50px;
 }
+
 #moodselect{
   background-image: url("images/ButtonBackground.png");
   background-size: contain;
@@ -22,11 +24,20 @@ h2{
   border-radius: 12px;
   margin-top: 25px; 
   padding: 10px;
+
+  
  
+}
+
+.inputBox{
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 25px; 
+  padding: 10px;
+  border: none;
 }
 #spinner {
   margin: auto;
-  
   border: 16px solid #ffffff;
   border-top: 16px solid #44ff92;
   border-radius: 50%;
