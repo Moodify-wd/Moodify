@@ -1,3 +1,4 @@
+
 const hash = window.location.hash
     .substring(1)
     .split('&')
@@ -16,7 +17,7 @@ let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 const clientId = "6e7bda700d6449fe92f25f191e2e4cec";
-const redirectUri = 'http://www.moodify.site/mood.html';
+const redirectUri = 'http://localhost/mood.html'; //'http://www.moodify.site/mood.html';
 const scopes = [
     'user-read-private',
     'playlist-modify-public',

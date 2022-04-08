@@ -67,17 +67,39 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     */
 
     // Dictionary of seeds to get reccomendations limited to 3 
-        let genreSeeds = {
-            "happy": "happy,party,edm",
-            "sad": "sad,indie,folk",
-            "mad": "rock,emo,hardcore",
-            "heartbroken": "sad,indie,folk",
-            "chill": "rainy-day, chill, ambient",
+    let genreSeeds = {
+        "happy": "happy,party,edm",
+        "sad": "sad,indie,folk",
+        "mad": "rock,emo,hardcore",
+        "heartbroken": "sad,indie,folk",
+        "chill": "rainy-day, chill, ambient",
     }
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
     var artistEncoded = encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
+    /*
+    // get favorite artiest
+    const getArtist = await fetch("https://api.spotify.com/v1/search?q=artist:" + artistEncoded + "&type=artist", {
+        method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + access_token,
+        }
+    })
+    const artistData = await getArtist.json();
+    var artistId = artistData.artists.items[0].id;
+    console.log('Artist ID' + artistId);
+
+    // get favortie song
+    const getFavTrack = await fetch("https://api.spotify.com/v1/search?q=" + encodeURIComponent(trackFormatted) + "&type=track&market=US", {
+        method: "GET",
+        headers: { 'Authorization': 'Bearer ' + access_token }
+    })
+    const trackData = await getFavTrack.json();
+
+    var trackId = trackData.tracks.items[0].id;
+    console.log(trackId);
+    */
 
     // get favorite artiest
     const getArtist = await fetch("https://api.spotify.com/v1/search?q=artist:" + artistEncoded + "&type=artist", {
