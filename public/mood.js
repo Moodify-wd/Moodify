@@ -67,12 +67,22 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     */
 
     // Dictionary of seeds to get reccomendations limited to 3 
-    let genreSeeds = {
-        "happy": "happy,party,edm",
-        "sad": "sad,indie,folk",
-        "mad": "rock,emo,hardcore",
-        "heartbroken": "sad,indie,folk",
-        "chill": "rainy-day, chill, ambient",
+    if (favArtist=="post malone"){
+        let genreSeeds = {
+            "happy": "hip-hop,party,happy",
+            "sad": "sad,hip-hop,folk",
+            "mad": "rock,emo,hardcore",
+            "heartbroken": "sad,indie,folk",
+            "chill": "rainy-day, chill, ambient",
+        }
+    }else { 
+        let genreSeeds = {
+            "happy": "happy,party,edm",
+            "sad": "sad,indie,folk",
+            "mad": "rock,emo,hardcore",
+            "heartbroken": "sad,indie,folk",
+            "chill": "rainy-day, chill, ambient",
+        }
     }
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
