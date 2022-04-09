@@ -76,7 +76,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     }
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
-    var artistEncoded = encodeURIComponent(favArtist);
+    var artistEncoded = "artist: " + encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
     /*
     // get favorite artiest
@@ -102,7 +102,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     */
 
     // get favorite artiest
-    const getArtist = await fetch("https://api.spotify.com/v1/search?q=artist:" + artistEncoded + "&type=artist", {
+    const getArtist = await fetch("https://api.spotify.com/v1/search?q=" + artistEncoded + "&type=artist", {
         method: "GET",
         headers: {
             'Authorization': 'Bearer ' + access_token,
