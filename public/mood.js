@@ -1,3 +1,4 @@
+
 // get access token 
 function parseURLHash() {
     var search = location.hash.substring(1);
@@ -26,7 +27,6 @@ function moodSelector() {
 
     // debug purposes to check correct selection is being assigned to userMood
     // console.log("Your selected mood was: " + userMood);
-
     spinnerCreator();
 
 
@@ -78,28 +78,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
     var artistEncoded = "artist: " + encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
-    /*
-    // get favorite artiest
-    const getArtist = await fetch("https://api.spotify.com/v1/search?q=artist:" + artistEncoded + "&type=artist", {
-        method: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + access_token,
-        }
-    })
-    const artistData = await getArtist.json();
-    var artistId = artistData.artists.items[0].id;
-    console.log('Artist ID' + artistId);
 
-    // get favortie song
-    const getFavTrack = await fetch("https://api.spotify.com/v1/search?q=" + encodeURIComponent(trackFormatted) + "&type=track&market=US", {
-        method: "GET",
-        headers: { 'Authorization': 'Bearer ' + access_token }
-    })
-    const trackData = await getFavTrack.json();
-
-    var trackId = trackData.tracks.items[0].id;
-    console.log(trackId);
-    */
 
     // get favorite artiest
     const getArtist = await fetch("https://api.spotify.com/v1/search?q=" + artistEncoded + "&type=artist", {
@@ -136,9 +115,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     console.log('Playlist id ' + playlistData.id);
 
     // get track recomendations based off of seed track artist and genres based off of mood
-
-    console.log("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=50&market=US");
-    const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=50&market=US", {
+    const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=25&market=US", {
         method: "GET",
         headers: {
             'Authorization': 'Bearer ' + access_token
