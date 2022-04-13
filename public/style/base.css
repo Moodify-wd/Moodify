@@ -24,3 +24,15 @@ h1{
     transform: translateY(-75%);
     z-index: -1;
 }
+
+.anima2{
+    position: absolute;
+    transform: translateY(-50%) translateX(75%);
+    z-index: -1;
+}
+
+.anima3{
+    position: absolute;
+    transform: translateY(-150%) translateX(75%);
+    z-index: -1;
+}
