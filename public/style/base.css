@@ -8,6 +8,7 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    z-index: 1;
     }
 h1{  
     text-align: center;
@@ -16,4 +17,10 @@ h1{
     font-style: normal;
     font-size: xxx-large;
     display: block;
+}
+
+.anima{
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: -1;
 }
