@@ -2,51 +2,133 @@
 <html>
 
 <head>
-    <meta charset='utf-8' />
-    <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/base.css">
-    <link rel="stylesheet" href="style/index.css">
-    <title>Moodify</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="icon" href="style/images/favicon.png">
-    <style type="text/css">
-    </style>
+  <meta charset='utf-8' />
+  <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/index.css">
+  <title>Moodify</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="icon" href="style/images/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+
+  <style type="text/css">
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div id="login">
-            <h1>Moodify</h1>
-            <h3>Music for any Mood</h3>
-            <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
-        </div>
+  <div class="container">
+    <div id="login">
+      <h1>Moodify</h1>
+      <h3>Music for any Mood</h3>
+      <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
     </div>
+  </div>
 
-    <section>
-        <h2>What is Moodify?</h2>
-        <p>
-            Moodify is built using Spotify's web API to dynamically generate a unique playlist for each user.
-            Once you log in, you'll be able to create a playlist using your liked music based on however you are
-            feeling.
-            Don't have any liked music? We have generated playlists based on pre-defined moods!</br></br>
+  <section>
+    <h2>What is Moodify?</h2>
+    <p>
+      Moodify is built using Spotify's web API to dynamically generate a unique playlist for each user.
+      Once you log in, you'll be able to create a playlist using your liked music based on however you are
+      feeling.</br></br>
+      Interested in learning more about the technical side? Please check out the <a
+        href=https://github.com/mcclaren00/Moodify>github!</a>
+    </p>
+  </section>
 
-            If you want to learn more about who & why this was created, please head to the <a
-                href="about.html">About</a>
-            section! </br></br>
-
-            Interested in learning more about the technical side? Please check out the <a
-                href=https://github.com/mcclaren00/Moodify>github!</a>
-        </p>
-    </section>
-
-    <!-- Redirect to mood.html on sucessful login -->
-    <script id="user-profile-template" type="text/x-handlebars-template">
+  <!-- Redirect to mood.html on sucessful login -->
+  <script id="user-profile-template" type="text/x-handlebars-template">
     <div data-include="mood.html"></div> 
 </script>
+<svg
+  id="visual"
+  viewBox="0 0 900 450"
+  width="900"
+  height="450"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  class="anima2"
+>
+  <g transform="translate(455.4039001699959 218.72055676149893)">
+    <path id="mainblob3"
+      d="M53.4 -71.2C69.6 -61.7 83.3 -46.6 88.4 -29.1C93.5 -11.6 90 8.2 80.8 23C71.5 37.7 56.4 47.3 42 61.4C27.6 75.4 13.8 94 -1.7 96.3C-17.2 98.7 -34.5 85 -51.9 71.9C-69.4 58.8 -87 46.4 -95.5 29C-104 11.5 -103.3 -10.9 -95 -29.1C-86.7 -47.3 -70.7 -61.3 -53.6 -70.4C-36.4 -79.5 -18.2 -83.7 0.2 -84C18.6 -84.3 37.2 -80.6 53.4 -71.2"
+      fill="#36daac"
+    ></path>
+  </g>
+  <g transform="translate(461.4264954693507 227.82346056673543)" style="visibility: hidden;">
+    <path id="mainblob4"
+      d="M50.1 -71.5C62.7 -59.9 68.9 -42.2 72 -25.2C75.1 -8.1 75.1 8.1 69.5 21.6C63.8 35.2 52.5 45.9 40 54.3C27.4 62.8 13.7 68.9 -3.8 74.1C-21.4 79.4 -42.7 83.8 -60.5 77.1C-78.4 70.4 -92.7 52.6 -96.1 33.3C-99.5 14 -92.1 -6.7 -81.2 -22C-70.2 -37.3 -55.8 -47.1 -41.7 -58.2C-27.6 -69.3 -13.8 -81.6 2.5 -85.1C18.8 -88.6 37.6 -83.1 50.1 -71.5"
+      fill="#36daac"
+    ></path>
+  </g>
+</svg>
+<script>
+  const tween2 = KUTE.fromTo(
+    "#mainblob3",
+    { path: "#mainblob3" },
+    { path: "#mainblob4" },
+    { repeat: 999, duration: 3000, yoyo: true }
+  ).start();
+</script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="auth.js"></script>
+  <svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" class="anima"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <g transform="translate(450.46763828575246 215.45632572145212)">
+      <path id="mainblob1"
+        d="M137.8 -103.4C175.5 -62.6 200.8 -5.5 196.1 56.7C191.5 118.9 156.7 186.1 111.4 193.4C66.1 200.6 10.2 147.8 -46.4 113.9C-103 79.9 -160.2 64.8 -184.2 23.7C-208.3 -17.4 -199.1 -84.5 -162.9 -124.9C-126.7 -165.3 -63.3 -179.2 -6.6 -173.9C50 -168.6 100.1 -144.1 137.8 -103.4"
+        fill="#36daac"></path>
+    </g>
+    <g transform="translate(501.5424696688423 251.3813862140953)">
+      <path id="mainblob2" style="visibility: hidden;"
+        d="M76 -89.9C93.2 -39.1 98 -7.8 96.1 30.5C94.2 68.8 85.5 114.1 53.9 140.3C22.3 166.4 -32.3 173.3 -85.2 155.9C-138.1 138.5 -189.5 96.7 -198.2 48.2C-206.9 -0.4 -173 -55.7 -132.9 -111.7C-92.8 -167.7 -46.4 -224.5 -8.5 -217.7C29.4 -211 58.9 -140.7 76 -89.9"
+        fill="#36daac"></path>
+    </g>
+  </svg>
+  <script>
+    const tween = KUTE.fromTo(
+      "#mainblob1",
+      { path: "#mainblob1" },
+      { path: "#mainblob2" },
+      { repeat: 999, duration: 3000, yoyo: true }
+    ).start();
+  </script>
+  <svg
+  id="visual"
+  viewBox="0 0 900 450"
+  width="900"
+  height="450"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  class="anima3"
+>
+  <g transform="translate(442.9088869698116 237.2258072513817)">
+    <path id="mainblob5"
+      d="M37.1 -64.4C52.6 -55.4 72.6 -54.4 85.9 -45C99.3 -35.7 105.9 -17.8 105.6 -0.2C105.3 17.5 98.1 35 84.7 44.2C71.3 53.5 51.6 54.5 36.5 57.4C21.3 60.3 10.7 65.1 -0.3 65.7C-11.3 66.3 -22.7 62.6 -33.1 56.9C-43.5 51.3 -52.9 43.6 -65.4 33.8C-77.9 24 -93.5 12 -91.2 1.3C-88.9 -9.4 -68.8 -18.8 -55.7 -27.6C-42.6 -36.4 -36.6 -44.6 -28.5 -57.9C-20.3 -71.2 -10.2 -89.6 0.3 -90.2C10.8 -90.8 21.7 -73.5 37.1 -64.4"
+      fill="#36daac"
+    ></path>
+  </g>
+  <g transform="translate(442.32816398935114 207.88220996480993)" style="visibility: hidden;">
+    <path id="mainblob6"
+      d="M40.3 -62.6C55.6 -61 73.7 -57 84.8 -46.2C95.9 -35.3 99.9 -17.7 92.7 -4.2C85.5 9.3 67 18.7 54.9 27.8C42.8 36.9 37.2 45.7 29.1 58C21 70.4 10.5 86.2 -4.1 93.3C-18.7 100.5 -37.5 99 -52.4 90.5C-67.2 82.1 -78.2 66.8 -80.5 50.6C-82.8 34.3 -76.4 17.2 -69.7 3.9C-62.9 -9.4 -55.8 -18.8 -49.8 -28.6C-43.8 -38.4 -38.9 -48.6 -30.8 -54.4C-22.7 -60.3 -11.3 -61.6 0.6 -62.6C12.5 -63.7 25 -64.3 40.3 -62.6"
+      fill="#36daac"
+    ></path>
+  </g>
+</svg>
+<script>
+    const tween3 = KUTE.fromTo(
+      "#mainblob5",
+      { path: "#mainblob5" },
+      { path: "#mainblob6" },
+      { repeat: 999, duration: 3000, yoyo: true }
+    ).start();
+  </script>
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="auth.js"></script>
+</body>
 
 </html>
