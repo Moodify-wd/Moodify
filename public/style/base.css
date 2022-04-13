@@ -21,6 +21,6 @@ h1{
 
 .anima{
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateY(-75%);
     z-index: -1;
 }

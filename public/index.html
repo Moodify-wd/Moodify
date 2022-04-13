@@ -2,83 +2,73 @@
 <html>
 
 <head>
-    <meta charset='utf-8' />
-    <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/base.css">
-    <link rel="stylesheet" href="style/index.css">
-    <title>Moodify</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="icon" href="style/images/favicon.png">
-    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+  <meta charset='utf-8' />
+  <link rel="stylesheet" href="https://use.typekit.net/sfr4zbs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/index.css">
+  <title>Moodify</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="icon" href="style/images/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
 
-    <style type="text/css">
-    </style>
+  <style type="text/css">
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div id="login">
-            <h1>Moodify</h1>
-            <h3>Music for any Mood</h3>
-            <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
-        </div>
+  <div class="container">
+    <div id="login">
+      <h1>Moodify</h1>
+      <h3>Music for any Mood</h3>
+      <center><button id="login-button" class="btn btn-primary">Log in with Spotify</button></center>
     </div>
+  </div>
 
-    <section>
-        <h2>What is Moodify?</h2>
-        <p>
-            Moodify is built using Spotify's web API to dynamically generate a unique playlist for each user.
-            Once you log in, you'll be able to create a playlist using your liked music based on however you are
-            feeling.
-            Don't have any liked music? We have generated playlists based on pre-defined moods!</br></br>
+  <section>
+    <h2>What is Moodify?</h2>
+    <p>
+      Moodify is built using Spotify's web API to dynamically generate a unique playlist for each user.
+      Once you log in, you'll be able to create a playlist using your liked music based on however you are
+      feeling.
+      Don't have any liked music? We have generated playlists based on pre-defined moods!</br></br>
 
-            If you want to learn more about who & why this was created, please head to the <a
-                href="about.html">About</a>
-            section! </br></br>
+      If you want to learn more about who & why this was created, please head to the <a href="about.html">About</a>
+      section! </br></br>
 
-            Interested in learning more about the technical side? Please check out the <a
-                href=https://github.com/mcclaren00/Moodify>github!</a>
-        </p>
-    </section>
+      Interested in learning more about the technical side? Please check out the <a
+        href=https://github.com/mcclaren00/Moodify>github!</a>
+    </p>
+  </section>
 
-    <!-- Redirect to mood.html on sucessful login -->
-    <script id="user-profile-template" type="text/x-handlebars-template">
+  <!-- Redirect to mood.html on sucessful login -->
+  <script id="user-profile-template" type="text/x-handlebars-template">
     <div data-include="mood.html"></div> 
 </script>
-<svg
-id="visual"
-viewBox="0 0 1920 1080"
-width="1920"
-height="1080"
-xmlns="http://www.w3.org/2000/svg"
-xmlns:xlink="http://www.w3.org/1999/xlink"
-version="1.1"
-class="anima"
->
-<g transform="translate(902.4173135207055 560.6043876566968)">
-  <path id="mainblob1"
-    d="M341.4 -274.6C426.9 -165.1 469.8 -24 439.2 96.2C408.5 216.5 304.3 315.9 182.9 370.9C61.6 425.9 -76.8 436.4 -165 379.7C-253.2 323 -291.1 199 -314.9 77C-338.7 -45.1 -348.4 -165.3 -293.6 -267.9C-238.7 -370.4 -119.4 -455.2 4.3 -458.6C128 -462 255.9 -384.1 341.4 -274.6"
-    fill="#E491A4"
-  ></path>
-</g>
-<g transform="translate(958.5343794376756 572.6792678862543)" style="visibility: hidden;">
-    <path id="mainblob2"
-      d="M339.6 -297.5C397.8 -197.9 373.4 -59.1 327.5 47.7C281.5 154.5 214 229.3 119.4 291.7C24.7 354.1 -97 404.1 -190.4 369.2C-283.9 334.2 -349.1 214.4 -366.2 96C-383.3 -22.4 -352.3 -139.3 -283.3 -241.4C-214.2 -343.5 -107.1 -430.8 16.8 -444.2C140.7 -457.6 281.5 -397.1 339.6 -297.5"
-      fill="#E491A4"
-    ></path>
-  </g>
-</svg>
-<script>
-const tween = KUTE.fromTo(
-  "#mainblob1",
-  { path: "#mainblob1" },
-  { path: "#mainblob2" },
-  { repeat: 999, duration: 3000, yoyo: true }
-).start();
-</script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="auth.js"></script>
+  <svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" class="anima"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <g transform="translate(450.46763828575246 215.45632572145212)">
+      <path id="mainblob1"
+        d="M137.8 -103.4C175.5 -62.6 200.8 -5.5 196.1 56.7C191.5 118.9 156.7 186.1 111.4 193.4C66.1 200.6 10.2 147.8 -46.4 113.9C-103 79.9 -160.2 64.8 -184.2 23.7C-208.3 -17.4 -199.1 -84.5 -162.9 -124.9C-126.7 -165.3 -63.3 -179.2 -6.6 -173.9C50 -168.6 100.1 -144.1 137.8 -103.4"
+        fill="#36daac"></path>
+    </g>
+    <g transform="translate(501.5424696688423 251.3813862140953)">
+      <path id="mainblob2" style="visibility: hidden;"
+        d="M76 -89.9C93.2 -39.1 98 -7.8 96.1 30.5C94.2 68.8 85.5 114.1 53.9 140.3C22.3 166.4 -32.3 173.3 -85.2 155.9C-138.1 138.5 -189.5 96.7 -198.2 48.2C-206.9 -0.4 -173 -55.7 -132.9 -111.7C-92.8 -167.7 -46.4 -224.5 -8.5 -217.7C29.4 -211 58.9 -140.7 76 -89.9"
+        fill="#36daac"></path>
+    </g>
+  </svg>
+  <script>
+    const tween = KUTE.fromTo(
+      "#mainblob1",
+      { path: "#mainblob1" },
+      { path: "#mainblob2" },
+      { repeat: 999, duration: 3000, yoyo: true }
+    ).start();
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="auth.js"></script>
 </body>
+
 </html>
