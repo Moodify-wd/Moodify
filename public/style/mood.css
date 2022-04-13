@@ -2,7 +2,6 @@ h2{
     margin-top: 25px;
     font-size: 21px;
     text-align: center;
-
     animation: 5s fadein;
     animation-fill-mode: forwards;
     visibility: hidden;
