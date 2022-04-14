@@ -97,6 +97,9 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         }
     })
     const artistData = await getArtist.json();
+    var artistGenre = artistData.artists.items[0];
+    console.log("Artist genere" + artistGenre);
+
     var artistId = artistData.artists.items[0].id;
     console.log(artistId);
 
@@ -106,6 +109,10 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         headers: { 'Authorization': 'Bearer ' + access_token }
     })
     const trackData = await getFavTrack.json();
+
+
+    var trackGenre = trackData.tracks.items[0];
+    console.log("track genre: " + trackGenre);
 
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
@@ -155,7 +162,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         moodDiv.textContent = "Playlist generated!";
         document.body.removeChild(spinner);
         window.open("https://open.spotify.com/playlist/" + playlistId);
-        document.body.removeChild(spinner);
+        // document.body.removeChild(spinner);
 
 
     } else {
