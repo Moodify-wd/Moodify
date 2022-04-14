@@ -97,7 +97,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         }
     })
     const artistData = await getArtist.json();
-    var artistGenre = artistData.artists.items[0].generes[0];
+    var artistGenre = artistData.artists.items[0].genres[0];
 
     console.log("Artist genere" + artistGenre);
 
