@@ -165,8 +165,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
 }
 
-async function logout() {
-    location.href ="index.html";
-    return access_token = null;
+async function logout(access_token) {
+    access_token = null;
+    window.location.href = 'index.html';
 
 }
