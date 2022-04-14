@@ -27,7 +27,6 @@ function moodSelector() {
 
     // debug purposes to check correct selection is being assigned to userMood
     // console.log("Your selected mood was: " + userMood);
-    spinnerCreator();
 
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
     moodHeading.textContent = "";
@@ -65,9 +64,10 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         var moodDiv = document.getElementById("moodSelector");
         moodDiv.textContent = "Error: Input must not have any special characters";
         setTimeout(moodDiv.textContent, 5000);
+        window.location.reload();
 
     }
-
+    spinnerCreator();
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
