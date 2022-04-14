@@ -57,6 +57,19 @@ function buttonCreator() {
 
 // Function creates a private playlist in the user account 
 async function playlistGenerate(access_token, userMood, favSong, favArtist) {
+
+
+    // Input validation
+    let specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (specialChars.test(favArtist) || specialChars.test(favSong)) {
+        var moodDiv = document.getElementById("moodSelector");
+        moodDiv.textContent = "Error: Input must not have any special characters";
+        setTimeout(3000);
+        window.location.reload();
+
+    }
+
+
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
@@ -75,6 +88,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     console.log(genreSeedsData.genres);
     */
 
+
+
     // Dictionary of seeds to get reccomendations limited to 3 
     let genreSeeds = {
         "happy": "happy,party,",
@@ -84,10 +99,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         "chill": "rainy-day,chill,",
     }
 
-
     var artistEncoded = "artist: " + encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
-
 
     // get favorite artiest
     const getArtist = await fetch("https://api.spotify.com/v1/search?q=" + artistEncoded + "&type=artist", {
@@ -129,7 +142,6 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood] + artistGenre)
 
-
     // get track recomendations based off of seed track artist and genres based off of mood
     const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=25&market=US", {
         method: "GET",
@@ -156,6 +168,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     }
 
     // Alert to open new playlist in a new tab 
+    // Genreate a new playlist button
     if (confirm("Open playlist")) {
         buttonCreator();
         var moodDiv = document.getElementById("moodSelector");
@@ -176,6 +189,10 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
 }
 
+/*
+Log out function sets access_token to null
+redirects to login page 
+*/
 async function logout() {
     access_token = null;
     console.log(access_token);
