@@ -13,6 +13,9 @@
 <body>
     <h1 id="heading1">Welcome to Moodify!</h1>
     <h2 id="heading2">How are you feeling today?</h2>
+    <div id="logCont">
+      <button type="button" id="logOut" onclick="logout()">Log Out</button>
+    </div>
     <div id="moodSelector">
         <form>
             <select name="mood" id="moodValue" class ="inputBox">
@@ -28,6 +31,7 @@
         </form>
         <p id="err"></p>
     </div>
+    <div id="backBtnDiv"></div>
 </body>
 <svg
   id="visual"
