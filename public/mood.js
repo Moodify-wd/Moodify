@@ -76,7 +76,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     */
 
     // Dictionary of seeds to get reccomendations limited to 3 
-    let genreSeedsDefault = {
+    let genreSeeds = {
         "happy": "happy,party,",
         "sad": "sad,indie,",
         "mad": "rock,emo,",
