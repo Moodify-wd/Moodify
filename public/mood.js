@@ -84,7 +84,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         "chill": "rainy-day,chill,",
     }
 
-    var genreEncoded = encodeURIComponent(genreSeeds[userMood])
+
     var artistEncoded = "artist: " + encodeURIComponent(favArtist);
     var trackFormatted = "track:" + favSong;
 
@@ -127,9 +127,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var playlistId = playlistData.id;
     console.log('Playlist id ' + playlistData.id);
 
-    //format genreSeeds
-    let genreSeeds = genreSeedsDefault[userMood];
-    genreSeeds += artistGenre;
+    var genreEncoded = encodeURIComponent(genreSeeds[userMood] + artistGenre)
+
 
     // get track recomendations based off of seed track artist and genres based off of mood
     const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=25&market=US", {
