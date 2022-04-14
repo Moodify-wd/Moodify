@@ -44,6 +44,16 @@ function spinnerCreator() {
 function spinnerRemover() {
     setTimeout(document.body.removeChild(spinner), 5000);
 }
+function buttonCreator(){
+    var backBtn=document.createElement('button');
+    var backBtnDiv=document.getElementById('backBtnDiv');
+    backBtn.id='backButton';
+    backBtn.textContent="Generate another";
+    backBtn.onclick = () => {
+        window.location.reload();
+    }
+    backBtnDiv.appendChild(backBtn);
+}
 
 // Function creates a private playlist in the user account 
 async function playlistGenerate(access_token, userMood, favSong, favArtist) {
@@ -140,6 +150,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
     // Alert to open new playlist in a new tab 
     if (confirm("Open playlist")) {
+        buttonCreator();
         var moodDiv = document.getElementById("moodSelector");
         moodDiv.textContent = "Playlist generated!";
         document.body.removeChild(spinner);
@@ -151,5 +162,11 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
     }
 
+
+}
+
+async function logout() {
+    location.href ="index.html";
+    return access_token = null;
 
 }
