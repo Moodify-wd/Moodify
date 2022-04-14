@@ -166,11 +166,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 }
 
 async function logout() {
-<<<<<<< HEAD
     location.href ="index.html";
     return access_token = null;
 
-=======
-    return access_token = null;
->>>>>>> logout function
 }
