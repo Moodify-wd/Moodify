@@ -47,6 +47,28 @@ h2{
   animation: spin 3s linear infinite;
 
 }
+
+#backBtnDiv{
+  display: flex;
+  justify-content: center;
+}
+
+#backButton, #logOut{
+  background-image: url("images/ButtonBackground.png");
+  background-size: contain;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-bottom: 75px;
+  padding: 25px;
+}
+
+#logCont{
+  transform: translateX(90%) translateY(-100%);
+}
+
+
 p{
   line-height: 3em;
 }
