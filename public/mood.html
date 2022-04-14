@@ -14,8 +14,6 @@
 <body>
     <h1 id="heading1">Welcome to Moodify!</h1>
     <h2 id="heading2">How are you feeling today?</h2>
-    <div id="logCont">
-      <button type="button" id="logOut" onclick="logout()">Log Out</button>
     </div>
     <div id="moodSelector">
         <form>
@@ -33,40 +31,9 @@
         <p id="err"></p>
     </div>
     <div id="backBtnDiv"></div>
+      <button type="button" id="logOut" onclick="logout()">Log Out</button>
 </body>
-<svg
-  id="visual"
-  viewBox="0 0 900 450"
-  width="900"
-  height="450"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  version="1.1"
-  class="anima2"
->
-  <g transform="translate(455.4039001699959 218.72055676149893)">
-    <path id="mainblob3"
-      d="M53.4 -71.2C69.6 -61.7 83.3 -46.6 88.4 -29.1C93.5 -11.6 90 8.2 80.8 23C71.5 37.7 56.4 47.3 42 61.4C27.6 75.4 13.8 94 -1.7 96.3C-17.2 98.7 -34.5 85 -51.9 71.9C-69.4 58.8 -87 46.4 -95.5 29C-104 11.5 -103.3 -10.9 -95 -29.1C-86.7 -47.3 -70.7 -61.3 -53.6 -70.4C-36.4 -79.5 -18.2 -83.7 0.2 -84C18.6 -84.3 37.2 -80.6 53.4 -71.2"
-      fill="#36daac"
-    ></path>
-  </g>
-  <g transform="translate(461.4264954693507 227.82346056673543)" style="visibility: hidden;">
-    <path id="mainblob4"
-      d="M50.1 -71.5C62.7 -59.9 68.9 -42.2 72 -25.2C75.1 -8.1 75.1 8.1 69.5 21.6C63.8 35.2 52.5 45.9 40 54.3C27.4 62.8 13.7 68.9 -3.8 74.1C-21.4 79.4 -42.7 83.8 -60.5 77.1C-78.4 70.4 -92.7 52.6 -96.1 33.3C-99.5 14 -92.1 -6.7 -81.2 -22C-70.2 -37.3 -55.8 -47.1 -41.7 -58.2C-27.6 -69.3 -13.8 -81.6 2.5 -85.1C18.8 -88.6 37.6 -83.1 50.1 -71.5"
-      fill="#36daac"
-    ></path>
-  </g>
-</svg>
-<script>
-  const tween2 = KUTE.fromTo(
-    "#mainblob3",
-    { path: "#mainblob3" },
-    { path: "#mainblob4" },
-    { repeat: 999, duration: 3000, yoyo: true }
-  ).start();
-</script>
-
-  <svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" class="anima"
+  <svg id="visual" viewBox="0 0 900 450" width="900" height="450" xmlns="http://www.w3.org/2000/svg" class="animam"
     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
     <g transform="translate(450.46763828575246 215.45632572145212)">
       <path id="mainblob1"
@@ -95,7 +62,39 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   version="1.1"
-  class="anima3"
+  class="animam2"
+>
+  <g transform="translate(455.4039001699959 218.72055676149893)">
+    <path id="mainblob3"
+      d="M53.4 -71.2C69.6 -61.7 83.3 -46.6 88.4 -29.1C93.5 -11.6 90 8.2 80.8 23C71.5 37.7 56.4 47.3 42 61.4C27.6 75.4 13.8 94 -1.7 96.3C-17.2 98.7 -34.5 85 -51.9 71.9C-69.4 58.8 -87 46.4 -95.5 29C-104 11.5 -103.3 -10.9 -95 -29.1C-86.7 -47.3 -70.7 -61.3 -53.6 -70.4C-36.4 -79.5 -18.2 -83.7 0.2 -84C18.6 -84.3 37.2 -80.6 53.4 -71.2"
+      fill="#36daac"
+    ></path>
+  </g>
+  <g transform="translate(461.4264954693507 227.82346056673543)" style="visibility: hidden;">
+    <path id="mainblob4"
+      d="M50.1 -71.5C62.7 -59.9 68.9 -42.2 72 -25.2C75.1 -8.1 75.1 8.1 69.5 21.6C63.8 35.2 52.5 45.9 40 54.3C27.4 62.8 13.7 68.9 -3.8 74.1C-21.4 79.4 -42.7 83.8 -60.5 77.1C-78.4 70.4 -92.7 52.6 -96.1 33.3C-99.5 14 -92.1 -6.7 -81.2 -22C-70.2 -37.3 -55.8 -47.1 -41.7 -58.2C-27.6 -69.3 -13.8 -81.6 2.5 -85.1C18.8 -88.6 37.6 -83.1 50.1 -71.5"
+      fill="#36daac"
+    ></path>
+  </g>
+</svg>
+<script>
+  const tween2 = KUTE.fromTo(
+    "#mainblob3",
+    { path: "#mainblob3" },
+    { path: "#mainblob4" },
+    { repeat: 999, duration: 3000, yoyo: true }
+  ).start();
+
+</script>
+  <svg
+  id="visual"
+  viewBox="0 0 900 450"
+  width="900"
+  height="450"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  class="animam3"
 >
   <g transform="translate(442.9088869698116 237.2258072513817)">
     <path id="mainblob5"

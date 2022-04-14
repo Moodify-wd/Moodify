@@ -64,10 +64,30 @@ h2{
   padding: 25px;
 }
 
-#logCont{
-  transform: translateX(90%) translateY(-100%);
+#logOut{
+  display: block;
+  margin: 0 auto;
 }
 
+.animam{
+  position: absolute;
+  transform: translateY(-75%);
+  z-index: -1;
+  animation: spin 15s linear infinite;
+  
+}
+
+.animam2{
+  position: absolute;
+  transform: translateY(-30%) translateX(75%);
+  z-index: -1;
+}
+
+.animam3{
+  position: absolute;
+  transform: translateY(-20%) translateX(150%);
+  z-index: -1;
+}
 
 p{
   line-height: 3em;
