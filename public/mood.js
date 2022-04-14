@@ -159,6 +159,10 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
 
     } else {
+        buttonCreator();
+        var moodDiv = document.getElementById("moodSelector");
+        moodDiv.textContent = "Playlist generated!";
+        document.body.removeChild(spinner);
 
     }
 
@@ -167,6 +171,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
 async function logout() {
     access_token = null;
+    console.log(access_token);
     location.href = "index.html";
 
 }
