@@ -97,7 +97,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         }
     })
     const artistData = await getArtist.json();
-    var artistGenre = artistData.artists.items[0];
+    var artistGenre = artistData.artists.items[0].generes[0];
+
     console.log("Artist genere" + artistGenre);
 
     var artistId = artistData.artists.items[0].id;
@@ -109,10 +110,6 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
         headers: { 'Authorization': 'Bearer ' + access_token }
     })
     const trackData = await getFavTrack.json();
-
-
-    var trackGenre = trackData.tracks.items[0];
-    console.log("track genre: " + trackGenre);
 
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
