@@ -118,8 +118,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var trackId = trackData.tracks.items[0].id;
     console.log(trackId);
 
-     // create playlist 
-     const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
+    // create playlist 
+    const createPlaylist = await fetch('https://api.spotify.com/v1/users/' + userId + '/playlists', {
         method: "POST",
         headers: { 'Authorization': 'Bearer ' + access_token },
         body: JSON.stringify({
@@ -166,6 +166,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
 }
 
-async function logout() {
-    return access_token = null;
+async function logout(access_token) {
+    access_token = null;
+    window.location.href = 'index.html';
+
 }
