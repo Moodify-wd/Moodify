@@ -31,7 +31,22 @@ function moodSelector() {
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
     moodHeading.textContent = "";
     moodDiv.textContent = "Generating playlist...";
-    playlistGenerate(access_token, userMood, favSong, favArtist);
+
+    // Input validation
+    let specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (specialChars.test(favArtist) || specialChars.test(favSong)) {
+        var moodDiv = document.getElementById("moodSelector");
+        moodDiv.textContent = "Error: Input must not have any special characters. Reloading...";
+
+        setTimeout(function () {
+            moodDiv.textContent,
+                window.location.reload(1);
+        }, 2000);
+    } else {
+
+        playlistGenerate(access_token, userMood, favSong, favArtist);
+        spinnerCreator();
+    }
 }
 
 function spinnerCreator() {
@@ -57,19 +72,6 @@ function buttonCreator() {
 // Function creates a private playlist in the user account 
 async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 
-
-    // Input validation
-    let specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if (specialChars.test(favArtist) || specialChars.test(favSong)) {
-        var moodDiv = document.getElementById("moodSelector");
-        moodDiv.textContent = "Error: Input must not have any special characters";
-
-        setTimeout(function () {
-            moodDiv.textContent,
-                window.location.reload(1);
-        }, 20000);
-    }
-    spinnerCreator();
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
         method: "GET",
         headers: { 'Authorization': 'Bearer ' + access_token }
