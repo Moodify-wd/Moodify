@@ -44,11 +44,11 @@ function spinnerCreator() {
 function spinnerRemover() {
     setTimeout(document.body.removeChild(spinner), 5000);
 }
-function buttonCreator(){
-    var backBtn=document.createElement('button');
-    var backBtnDiv=document.getElementById('backBtnDiv');
-    backBtn.id='backButton';
-    backBtn.textContent="Generate another";
+function buttonCreator() {
+    var backBtn = document.createElement('button');
+    var backBtnDiv = document.getElementById('backBtnDiv');
+    backBtn.id = 'backButton';
+    backBtn.textContent = "Generate another";
     backBtn.onclick = () => {
         window.location.reload();
     }
@@ -166,7 +166,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
 }
 
 async function logout() {
-    location.href ="index.html";
-    return access_token = null;
+    access_token = null;
+    location.href = "index.html";
 
 }
