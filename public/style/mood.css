@@ -26,7 +26,7 @@ h2{
   border-radius: 12px;
   margin-top: 25px; 
   padding: 10px;
-  font-family: superior-title,serif; 
+  font-family: bely-display, sans-serif;
 }
 
 .inputBox{
@@ -35,7 +35,7 @@ h2{
   margin-top: 25px; 
   padding: 10px;
   border: none;
-  font-family: superior-title,serif;
+  font-family: bely-display, sans-serif;
 }
 #spinner {
   margin: auto;
