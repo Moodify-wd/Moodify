@@ -43,7 +43,6 @@ function moodSelector() {
                 window.location.reload(1);
         }, 2000);
     } else {
-
         playlistGenerate(access_token, userMood, favSong, favArtist);
         spinnerCreator();
     }
@@ -89,8 +88,6 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     const genreSeedsData = await getGenreSeeds.json();
     console.log(genreSeedsData.genres);
     */
-
-
 
     // Dictionary of seeds to get reccomendations limited to 3 
     let genreSeeds = {
@@ -142,7 +139,8 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     var playlistId = playlistData.id;
     console.log('Playlist id ' + playlistData.id);
 
-    var genreEncoded = encodeURIComponent(genreSeeds[userMood] + artistGenre)
+    // Add artist genre to genre seeds
+    var genreEncoded = encodeURIComponent(genreSeeds[userMood] + artistGenre);
 
     // get track recomendations based off of seed track artist and genres based off of mood
     const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=25&market=US", {
