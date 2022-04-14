@@ -63,9 +63,11 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     if (specialChars.test(favArtist) || specialChars.test(favSong)) {
         var moodDiv = document.getElementById("moodSelector");
         moodDiv.textContent = "Error: Input must not have any special characters";
-        setTimeout(moodDiv.textContent, 5000);
-        window.location.reload();
 
+        setTimeout(function () {
+            moodDiv.textContent,
+                window.location.reload(1);
+        }, 20000);
     }
     spinnerCreator();
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
