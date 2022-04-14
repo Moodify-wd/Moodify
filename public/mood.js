@@ -29,7 +29,6 @@ function moodSelector() {
     // console.log("Your selected mood was: " + userMood);
     spinnerCreator();
 
-
     // switch statement for userMood.. eventually will be used to generate playlist based on picked mood.
     moodHeading.textContent = "";
     moodDiv.textContent = "Generating playlist...";

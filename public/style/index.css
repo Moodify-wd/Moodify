@@ -5,7 +5,7 @@
 
 h1{  
     text-align: center;
-    font-family: superior-title, serif;
+    font-family: bely-display, sans-serif;
     font-weight: 800;
     font-style: normal;
     font-size: xxx-large;
@@ -24,25 +24,32 @@ h1{
     }
 
 h2{
-    font-family: superior-title, serif;
     font-weight: 300;
+    font-family: bely, serif;
+    font-weight: 700; 
     font-style: italic;
     text-align: center;
-    font-size: medium;
 
 }
 h3{
-    font-family: superior-title, serif;
-    font-weight: 300;
+    font-family: bely-display, sans-serif;
+    font-weight: 500;
     font-style: italic;
     text-align: center;
     font-size: medium;
 
 }
 p{
-    font-family: superior-title, serif;
+    font-family: sans-serif;
     text-align: center;
     font-size: medium;
     padding-left: 150px;
     padding-right: 150px;
+    line-height: 1.5rem;
 } 
+
+a{
+    text-decoration-line: none;
+    font-size: 36px;
+    color: black;
+}
