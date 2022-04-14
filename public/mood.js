@@ -76,12 +76,12 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     */
 
     // Dictionary of seeds to get reccomendations limited to 3 
-    let genreSeeds = {
-        "happy": "happy,party,edm",
-        "sad": "sad,indie,folk",
-        "mad": "rock,emo,hardcore",
-        "heartbroken": "sad,indie,folk",
-        "chill": "rainy-day, chill, ambient",
+    let genreSeedsDefault = {
+        "happy": "happy,party,",
+        "sad": "sad,indie,",
+        "mad": "rock,emo,",
+        "heartbroken": "sad,indie,",
+        "chill": "rainy-day,chill,",
     }
 
     var genreEncoded = encodeURIComponent(genreSeeds[userMood])
@@ -126,6 +126,10 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     const playlistData = await createPlaylist.json();
     var playlistId = playlistData.id;
     console.log('Playlist id ' + playlistData.id);
+
+    //format genreSeeds
+    let genreSeeds = genreSeedsDefault[userMood];
+    genreSeeds += artistGenre;
 
     // get track recomendations based off of seed track artist and genres based off of mood
     const getTracks = await fetch("https://api.spotify.com/v1/recommendations?seed_artists=" + artistId + "&seed_genres=" + genreEncoded + "&seed_tracks=" + trackId + "&limit=25&market=US", {
