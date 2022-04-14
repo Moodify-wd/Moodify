@@ -64,7 +64,7 @@ async function playlistGenerate(access_token, userMood, favSong, favArtist) {
     if (specialChars.test(favArtist) || specialChars.test(favSong)) {
         var moodDiv = document.getElementById("moodSelector");
         moodDiv.textContent = "Error: Input must not have any special characters";
-        setTimeout(moodDiv.textContent, window.location.reload(), 5000);
+        setTimeout(moodDiv.textContent, 5000);
 
     }
 
