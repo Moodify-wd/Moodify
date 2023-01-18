@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mcclaren00/web-dev-project#readme",
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^1.2.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
